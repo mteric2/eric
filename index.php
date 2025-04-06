@@ -16,25 +16,8 @@
   </div>
 
   <!-- Formulario -->
-  <form class="form-register" action="#" method="post">
-    <h4>SISTEMA DE COTIZACIÓN</h4>
-    <input type="text" name="usuario" placeholder="Ingrese su nombre">
-    <input type="password" id="contr" name="contraseña" required placeholder="Ingrese su contraseña"><br><br>
-    <button type="submit" name="submit">INICIAR SESIÓN</button>
-    <div class="captcha-container">
-      <input type="checkbox" id="fake-captcha">
-      <label for="fake-captcha">
-        <img src="https://www.gstatic.com/recaptcha/api2/logo_48.png" alt="reCAPTCHA">
-        No soy un robot
-      </label>
-    </div>
-    <div class="forgot-password">
-      <a href="recuperar.html">¿Olvidaste tu contraseña?</a>
-            <a href="admin.php">¿Olvidaste tu contraseña?</a>
-      
-    </div>
-  </form>
 
+  <a href="admin.php">¿Olvidaste tu contraseña?</a>
   <script src="script.js"></script>
 </body>
 </html>
