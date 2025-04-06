@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Asistencia</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 15px;
+            text-align: left;
+        }
+        .pagination a {
+            margin: 0 5px;
+            text-decoration: none;
+        }
+        .curPage {
+            font-weight: bold;
+        }
+        button {
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+    <script>
+        function exportTableToExcel(tableID, filename = ''){
+            var downloadLink;
+            var dataType = 'application/vnd.ms-excel';
+            var tableSelect = document.getElementById(tableID);
+            var tableHTML = tableSelect.outerHTML.replace(/ /g, '%20');
+
+            // Specify file name
+            filename = filename ? filename + '.xls' : 'excel_data.xls';
+
+            // Create download link element
+            downloadLink = document.createElement("a");
+
+            document.body.appendChild(downloadLink);
+
+            if (navigator.msSaveOrOpenBlob) {
+                var blob = new Blob(['\ufeff', tableHTML], { type: dataType });
+                navigator.msSaveOrOpenBlob(blob, filename);
+            } else {
+                downloadLink.href = 'data:' + dataType + ', ' + tableHTML;
+
+                // Setting the file name
+                downloadLink.download = filename;
+
+                // triggering the function
+                downloadLink.click();
+            }
+        }
+    </script>
+</head>
+<body>
+    <center><h1>LISTA DE ASISTENCIA</h1></center>
+    <table id="attendanceTable">
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Hora</th>
+            <th>Tipo</th>
+        </tr>
+        <?php
+        include("conexionp.php");
+
+        // Consulta para obtener los registros de la base de datos
+        $query = "SELECT * FROM attendance_records";
+        $result = mysqli_query($conex, $query);
+
+        // Verificar si hay registros para mostrar
+        if (mysqli_num_rows($result) > 0) {
+            while ($row = mysqli_fetch_assoc($result)) {
+                echo "<tr>
+                        <td>{$row['id']}</td>
+                        <td>{$row['name']}</td>
+                        <td>{$row['time']}</td>
+                        <td>{$row['type']}</td>
+                      </tr>";
+            }
+        } else {
+            echo "<tr><td colspan='4'>No hay registros de asistencia.</td></tr>";
+        }
+
+        mysqli_close($conex);
+        ?>
+    </table>
+    <br>
+    <button onclick="exportTableToExcel('attendanceTable', 'asistencia')">Exportar a Excel</button>
+</body>
+</html>

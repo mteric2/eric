@@ -1,0 +1,181 @@
+.fron-registerr {
+  border-radius: 10px;
+  margin-top: 1px;
+  width: 90%;
+  background: #f2e8e1;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  padding: 15px 50px;
+}
+
+.main-container {
+  animation-name: change-color;
+  animation-duration: 7s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  display: flex;
+  border-radius: 10px;
+  margin-top: 1px;
+  width: 90%;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  padding: 15px 50px;
+}
+
+
+.main-container input[type="text"] {
+  text-align: justify;
+  color: #000000;
+  font-weight: bold;
+  border: 1px solid ;
+  margin: 20px 0;
+  padding-left: 10px;
+  height: 50px;
+  width: 430px;
+  border-radius: 30px;
+  background: transparent;
+}
+.main-container input[type="text"] :hover {
+  text-align: justify;
+  color: #000000;
+  font-weight: bold;
+  border: 1px solid ;
+  margin: 20px 0;
+  padding-left: 10px;
+  height: 50px;
+  width: 430px;
+  border-radius: 30px;
+  background: transparent;
+}
+
+@keyframes change-color {
+  50% {
+    width: 70%;;
+  }
+
+  100% {
+    width: 80%;;
+  }
+}
+input[type="file"] {
+  display: inline-block;
+  width: 390px;
+}
+
+input {
+  width: 190px;
+  border: 1px solid rgb(0, 0, 0);
+  margin: 30px 30px;
+  padding-left: 35px;
+  outline: none;
+  height: 50px;
+  margin-top: 20px;
+  border-radius: 5px;
+  background-color: #ddd;
+}
+
+input::placeholder {
+  color: black;
+  font-weight: bold;
+}
+
+.fron-registerr select {
+  border: 1px solid black;
+  font-weight: bold;
+  background: #ddd;
+  height: 50px;
+  width: 190px;
+  align-items: center;
+  justify-content: center;
+}
+
+h2 {
+  font-size: 15px;
+  margin-top: 5px;
+  font-weight: bold;
+  color: black;
+  text-align: justify;
+}
+
+.img {
+  width: 50px;
+  height: 100px;
+  border-radius: 50%;
+  margin: 20px;
+}
+
+
+.pagination {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.pagination a {
+  color: #007ee1;
+  padding: 8px 16px;
+  text-decoration: none;
+  transition: background-color .3s;
+}
+
+.pagination a:hover:not(.curPage) {
+  background-color: #f2e8e1;
+}
+
+.pagination .curPage {
+  background-color: #007ee1;
+  color: #ffffff;
+}
+
+/* Media Queries para responsividad */
+@media (max-width: 768px) {
+  .main-container {
+    flex-direction: column;
+    padding: 10px;
+  }
+
+  .main-container input[type="text"] {
+    width: 100%;
+    margin: 10px 0;
+  }
+
+  input {
+    width: 100%;
+    margin: 10px 0;
+  }
+
+  input[type="file"] {
+    width: 100%;
+  }
+
+  .fron-registerr select {
+    width: 100%;
+  }
+
+  .pagination a {
+    padding: 5px 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-container {
+    padding: 5px;
+  }
+
+  .main-container input[type="text"],
+  input,
+  input[type="file"],
+  .fron-registerr select {
+    width: 100%;
+    margin: 5px 0;
+  }
+
+  h2 {
+    font-size: 12px;
+  }
+
+  .pagination a {
+    padding: 5px;
+  }
+}
