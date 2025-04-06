@@ -16,7 +16,7 @@
   </div>
 
   <!-- Formulario -->
-  <form class="form-register" action="validar.php" method="post">
+  <form class="form-register" action="#" method="post">
     <h4>SISTEMA DE COTIZACIÓN</h4>
     <input type="text" name="usuario" placeholder="Ingrese su nombre">
     <input type="password" id="contr" name="contraseña" required placeholder="Ingrese su contraseña"><br><br>
@@ -30,6 +30,8 @@
     </div>
     <div class="forgot-password">
       <a href="recuperar.html">¿Olvidaste tu contraseña?</a>
+            <a href="admin.php">¿Olvidaste tu contraseña?</a>
+      
     </div>
   </form>
 
